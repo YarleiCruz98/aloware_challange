@@ -136,18 +136,22 @@ Feature: Get Demo - Request a demo form
     And I should not see the text "Carregando"
 
   @get-demo @conversion @form @validation @p0 @ALW-DEMO-002
-  Scenario: Demo form blocks empty submission with visible validation
+  Scenario: Demo form blocks submission when using a personal email domain
     Given the demo form iframe is visible
-    When I attempt to submit the demo form with all required fields empty
+    When I complete all required demo form fields with valid data except email "qa_candidate@gmail.com"
+    And I submit the demo form
     Then submission should be blocked
-    And I should see at least one visible validation error message
+    And I should see a visible validation message indicating personal email domains are not allowed
 
   @get-demo @conversion @form @submission @p0 @ALW-DEMO-003
-  Scenario: Demo form submission results in a success confirmation
+  Scenario: Demo form submission succeeds with a valid corporate email
     Given the demo form iframe is visible
-    When I complete all required demo form fields with valid values
+    When I complete all required demo form fields with valid values including email "qa@acme-test.com"
     And I submit the demo form
-    Then I should see a visible success confirmation message or a thank-you page
+    Then I should be redirected to the scheduling page
+    And I should be able to select the country/time zone
+    And I should be able to select a date and one of the available time slots shown on the screen
+    And I should be able to complete the meeting booking flow
 ```
 
 ## Pricing - Plan tabs, billing options, and signup CTA
