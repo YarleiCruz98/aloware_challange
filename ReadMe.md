@@ -4,12 +4,12 @@
 
 ## Project overview
 
-This repository supports the **Aloware QA assessment** for **aloware.com** (marketing / landing focus). The **[`TEST_PLAN.md`](./TEST_PLAN.md)** follows the formal assessment structure (overview, scope, strategy, risks, environments, entry/exit criteria, automation strategy, deliverables, recommended execution order, daily quality, appendix) aligned with the submitted write-up. The plan recommends **Playwright** for scaling automation; **this repo** implements the required **Cypress + JavaScript** demonstration and CI.
+This repository supports the **Aloware QA assessment** for **aloware.com** (marketing / landing focus). The **formal test plan** (overview, scope, strategy, risks, environments, entry/exit criteria, automation strategy, deliverables, recommended execution order, daily quality, reporting, appendix) is **[`Yarlei_Cruz_Aloware_QA_Assessment.pdf`](./Yarlei_Cruz_Aloware_QA_Assessment.pdf)** — not a separate Markdown file. **This repo** implements the required **Cypress + JavaScript** demonstration and CI.
 
 It includes:
 
-- a **sample test-case catalogue** in Gherkin form ([`Test_Cases.md`](./Test_Cases.md))
-- a **test plan** ([`TEST_PLAN.md`](./TEST_PLAN.md))
+- a **sample test-case catalogue** in Gherkin form ([`Test_Cases.md`](./Test_Cases.md)) — same scenarios as Appendix A in the PDF
+- the **test plan** as **[`Yarlei_Cruz_Aloware_QA_Assessment.pdf`](./Yarlei_Cruz_Aloware_QA_Assessment.pdf)**
 - **three Cypress end-to-end tests** in **plain JavaScript** (demonstration automation)
 - a documented **Cypress project structure** (`cypress/`, [`cypress.config.js`](./cypress.config.js))
 - a **daily quality strategy** for the wider site (below)
@@ -24,16 +24,14 @@ It includes:
 | **ALW-LP-003** | Header shows **Products**, **Solutions**, **Pricing**, **AI Hub**, **Resources** |
 | **ALW-LP-007** | Header **Pricing** → `/pricing` and pricing hero copy |
 
-> **Note:** Gherkin in `Test_Cases.md` is for documentation and traceability. Cypress specs are **`.cy.js`** (Mocha `describe` / `it`), not Cucumber `.feature` files.
-
 ---
 
 ## Repository contents
 
 | Item | Description |
 |------|-------------|
-| [`Test_Cases.md`](./Test_Cases.md) | Full BDD/Gherkin-style catalogue (landing + additional areas) |
-| [`TEST_PLAN.md`](./TEST_PLAN.md) | Full QA test plan (§2.1–2.15, §3 daily strategy, §4 appendix pointer) |
+| [`Test_Cases.md`](./Test_Cases.md) | Full BDD/Gherkin-style catalogue (landing + additional areas); mirrors Appendix A in the PDF |
+| [`Yarlei_Cruz_Aloware_QA_Assessment.pdf`](./Yarlei_Cruz_Aloware_QA_Assessment.pdf) | **QA test plan** (PDF): sections 2–5 + Appendix A |
 | [`cypress/e2e/`](./cypress/e2e/) | Three demonstration specs |
 | [`cypress/pages/`](./cypress/pages/) | Page objects (`HomePage`, `GetDemoPage`, `PricingPage`) |
 | [`cypress/support/`](./cypress/support/) | Support file + Mochawesome register |
@@ -110,7 +108,7 @@ Workflow: **[`cypress.yml`](./.github/workflows/cypress.yml)**
 
 ## Daily quality strategy
 
-The **canonical** narrative (smoke vs nightly, scenario IDs, extra activities) is in **[`TEST_PLAN.md`](./TEST_PLAN.md) — §3**. Summary below matches that document.
+The **canonical** narrative (smoke vs nightly, scenario IDs, extra activities) is in **[`Yarlei_Cruz_Aloware_QA_Assessment.pdf`](./Yarlei_Cruz_Aloware_QA_Assessment.pdf) — section 3**. Summary below matches that document.
 
 ### Daily smoke
 
@@ -156,22 +154,10 @@ Examples from the suite:
 | Deliverable | Where |
 |-------------|--------|
 | Sample test cases (landing + more) | [`Test_Cases.md`](./Test_Cases.md) |
-| Test plan | [`TEST_PLAN.md`](./TEST_PLAN.md) |
+| Test plan (written assessment) | [`Yarlei_Cruz_Aloware_QA_Assessment.pdf`](./Yarlei_Cruz_Aloware_QA_Assessment.pdf) |
 | Three Cypress demos (JS) | [`cypress/e2e/`](./cypress/e2e/) |
 | Cypress structure | [`cypress/`](./cypress/), [`cypress.config.js`](./cypress.config.js) |
-| Daily quality steps | This README + [`TEST_PLAN.md`](./TEST_PLAN.md) |
+| Daily quality steps | Section 3 of the PDF + summary in this README |
 | GitHub project / scripts | This repo + [`.github/workflows/cypress.yml`](./.github/workflows/cypress.yml) |
-| Document / presentation | Add your PDF/slides (e.g. `Yarlei_Cruz_Aloware_QA_Assessment.pdf`) as required by the assessor |
-| Reporting integration | Mochawesome — section **Reporting** in this file |
-
----
-
-## Optional: Selenium script (legacy)
-
-If `test_aloware_get_demo.py` is present in the repo: Python 3.10+, Chrome, `pip install -U selenium`, then `python .\test_aloware_get_demo.py` (ALW-LP-002 only). **Primary** automation for this assessment is **Cypress**.
-
----
-
-## License / attribution
-
-Assessment materials. Site content © Aloware.
+| Document / presentation | Same PDF (`Yarlei_Cruz_Aloware_QA_Assessment.pdf`) |
+| Reporting integration | Mochawesome — section **Reporting** |
