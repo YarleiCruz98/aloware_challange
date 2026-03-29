@@ -34,3 +34,10 @@ Desktop.ini
 
 # Logs
 *.log
+
+# Node / Cypress
+node_modules/
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+cypress/reports/

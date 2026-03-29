@@ -1,0 +1,41 @@
+name: Cypress E2E
+
+# Manual run: GitHub → Actions → "Cypress E2E" (left sidebar) → "Run workflow" → Run workflow
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    - cron: '0 14 * * *'
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          install: false
+          browser: chrome
+          headed: false
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-mochawesome-report
+          path: cypress/reports/html
+          if-no-files-found: ignore

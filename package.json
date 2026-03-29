@@ -1,0 +1,15 @@
+{
+  "name": "aloware-qa-assessment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cypress E2E demonstration for aloware.com landing page (Aloware QA assessment)",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^14.5.4",
+    "cypress-mochawesome-reporter": "^3.8.2"
+  }
+}
