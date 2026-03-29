@@ -4,7 +4,7 @@
 
 ## Project overview
 
-This repository supports the **Aloware QA assessment** for **aloware.com** (marketing / landing focus). The **formal test plan** (overview, scope, strategy, risks, environments, entry/exit criteria, automation strategy, deliverables, recommended execution order, daily quality, reporting, appendix) is **[`Yarlei_Cruz_Aloware_QA_Assessment.pdf`](./Yarlei_Cruz_Aloware_QA_Assessment.pdf)** — not a separate Markdown file. **This repo** implements the required **Cypress + JavaScript** demonstration and CI.
+This repository supports the **Aloware QA assessment** for **aloware.com**. The **formal test plan** (overview, scope, strategy, risks, environments, entry/exit criteria, automation strategy, deliverables, recommended execution order, daily quality, reporting, appendix) is **[`Yarlei_Cruz_Aloware_QA_Assessment.pdf`](./Yarlei_Cruz_Aloware_QA_Assessment.pdf)**. **This repo** implements the required **Cypress + JavaScript** demonstration and CI.
 
 It includes:
 
